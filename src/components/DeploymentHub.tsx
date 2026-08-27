@@ -23,9 +23,9 @@ import {
 
 export const CLOUDFLARE_WORKER_SCRIPT = `/**
  * Cloudflare Worker Reverse Proxy for Google Apps Script Web App
- * Enables custom domain: https://cbt.sekolah.sch.id
+ * Target Domain: https://cbt.smknbojonggambir.web.id
  */
-const GAS_WEBAPP_URL = "https://script.google.com/macros/s/AKfycbxYOUR_SCRIPT_ID/exec";
+const GAS_WEBAPP_URL = "https://script.google.com/macros/s/AKfycbyihW8KTB0jvirRHYzPtb_eLZj5ltlN96qOJ_PFK7pQdHOST0QKZnZVoU_er8bbdDWHUA/exec";
 
 export default {
   async fetch(request, env, ctx) {
