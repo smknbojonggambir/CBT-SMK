@@ -1,0 +1,6 @@
+{
+  "name": "CBT SMK Profesional - Google Apps Script & Sheets Edition",
+  "description": "Sistem Computer Based Test (CBT) profesional untuk SMK berbasis Google Sheets & Apps Script dengan dukungan 30+ siswa serempak, session mode, 5 model soal, auto-save, anti-reset, dan panduan custom domain.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
