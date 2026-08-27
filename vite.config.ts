@@ -5,34 +5,12 @@ import { defineConfig } from 'vite';
 
 export default defineConfig(() => {
   return {
+    base: '/', // <- Memastikan asset CSS/JS terbaca dengan benar di GitHub Pages
     plugins: [react(), tailwindcss()],
     resolve: {
       alias: {
         '@': path.resolve(__dirname, '.'),
       },
     },
-    server: {
-      host: '0.0.0.0',
-      port: 3000,
-      // Izinkan akses langsung dari domain pribadi sekolah Anda
-      allowedHosts: [
-        'cbt.smknbojonggambir.web.id',
-        '.smknbojonggambir.web.id',
-        'localhost',
-        '.run.app'
-      ],
-      // HMR is disabled in AI Studio via DISABLE_HMR env var.
-      hmr: process.env.DISABLE_HMR !== 'true',
-      // Disable file watching when DISABLE_HMR is true to save CPU during agent edits.
-      watch: process.env.DISABLE_HMR === 'true' ? null : {},
-    },
-    preview: {
-      host: '0.0.0.0',
-      port: 3000,
-      allowedHosts: [
-        'cbt.smknbojonggambir.web.id',
-        '.smknbojonggambir.web.id'
-      ]
-    }
   };
 });
