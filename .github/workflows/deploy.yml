@@ -1,0 +1,62 @@
+name: Deploy CBT SMKN Bojonggambir
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  build-and-test:
+    name: Build & Verify Codebase
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 📥 Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: 🟢 Setup Node.js Environment
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: 📦 Install Dependencies
+        run: npm ci
+
+      - name: 🔍 Linter & TypeScript Check
+        run: npm run lint
+
+      - name: 🏗️ Build Production Bundle (Vite)
+        run: npm run build
+
+      - name: 📤 Upload Build Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: dist-cbt-smknbojonggambir
+          path: dist/
+
+  deploy-cloudflare:
+    name: Deploy to Cloudflare Pages / Custom Domain
+    needs: build-and-test
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 📥 Download Build Artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: dist-cbt-smknbojonggambir
+          path: dist/
+
+      - name: 🚀 Publish to Cloudflare Pages (cbt.smknbojonggambir.web.id)
+        uses: cloudflare/pages-action@v1
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          projectName: cbt-smknbojonggambir
+          directory: dist/
+          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
