@@ -73,11 +73,12 @@ function setupAllSheetsDatabase() {
       name: SHEETS.CONFIG,
       headers: ["Key", "Value", "Keterangan", "UpdatedAt"],
       data: [
-        ["NAMA_SEKOLAH", "SMK NEGERI 1 INDONESIA", "Nama resmi sekolah untuk kop berita acara", new Date().toISOString()],
-        ["NPSN", "20104567", "Nomor Pokok Sekolah Nasional", new Date().toISOString()],
-        ["ALAMAT", "Jl. Pendidikan Kejuruan No. 45, Jakarta", "Alamat instansi", new Date().toISOString()],
-        ["KEPALA_SEKOLAH", "Drs. H. Hendra Wijaya, M.Pd", "Nama Kepala Sekolah", new Date().toISOString()],
-        ["NIP_KEPSEK", "196805121994031005", "NIP Kepala Sekolah", new Date().toISOString()],
+        ["NAMA_SEKOLAH", "SMKN BOJONGGAMBIR", "Nama resmi sekolah untuk kop berita acara", new Date().toISOString()],
+        ["NPSN", "20268128", "Nomor Pokok Sekolah Nasional", new Date().toISOString()],
+        ["ALAMAT", "Jl. Bojonggambir, Tasikmalaya, Jawa Barat", "Alamat instansi", new Date().toISOString()],
+        ["DOMAIN_RESMI", "https://cbt.smknbojonggambir.web.id", "Custom domain resmi CBT sekolah", new Date().toISOString()],
+        ["KEPALA_SEKOLAH", "Kepala Sekolah SMKN Bojonggambir", "Nama Kepala Sekolah", new Date().toISOString()],
+        ["NIP_KEPSEK", "-", "NIP Kepala Sekolah", new Date().toISOString()],
         ["TAHUN_AJARAN", "2025/2026", "Tahun ajaran aktif", new Date().toISOString()],
         ["SEMESTER", "GENAP", "Semester aktif (GANJIL/GENAP)", new Date().toISOString()],
         ["STRICT_ANTI_CHEAT", "TRUE", "Kunci layar penuh & deteksi pindah tab otomatis", new Date().toISOString()],
@@ -560,12 +561,12 @@ export const MASTER_INDEX_HTML = `<!DOCTYPE html>
         </div>
         <div>
           <div class="flex items-center space-x-2">
-            <span class="font-extrabold text-slate-900 dark:text-white tracking-tight text-base">CBT SMK PRO</span>
+            <span class="font-extrabold text-slate-900 dark:text-white tracking-tight text-base">CBT SMKN BOJONGGAMBIR</span>
             <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-indigo-50 text-indigo-700 dark:bg-indigo-950 dark:text-indigo-300 border border-indigo-200 dark:border-indigo-800">
               v2.5 PRO
             </span>
           </div>
-          <p class="text-[11px] text-slate-500 dark:text-slate-400 font-medium truncate">SMK NEGERI 1 INDONESIA</p>
+          <p class="text-[11px] text-slate-500 dark:text-slate-400 font-medium truncate">cbt.smknbojonggambir.web.id</p>
         </div>
       </div>
 
